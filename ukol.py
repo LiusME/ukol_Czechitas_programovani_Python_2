@@ -2,7 +2,6 @@ import requests
 import json
 
 
-# Funkce pro vyhledání právní formy
 def vyhledej_pravni_formu(kod, seznam):
     for polozka in seznam:
         if polozka["kod"] == kod:
@@ -46,7 +45,6 @@ def main():
             pocet_celkem = vysledek.get("pocetCelkem", 0)
             subjekty = vysledek.get("ekonomickeSubjekty", [])
             
-            # Získání číselníku právních forem
             response_legal = requests.post(
                 "https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ciselniky-nazevniky/vyhledat",
                 headers=headers,
